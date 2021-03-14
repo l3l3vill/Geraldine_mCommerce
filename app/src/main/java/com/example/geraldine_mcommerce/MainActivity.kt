@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         if (isOnline(this)){
-            viewModel.getProductList()
+            viewModel.getProductListFromAPI()
             viewModel.myResponse.observe(this, Observer { response ->
                 if (response.isSuccessful){
                     response.body()?.let { productListAdapter.setList(it) }
@@ -52,18 +52,8 @@ class MainActivity : AppCompatActivity() {
             })
 
         }else{
-            Toast.makeText(this, "NO INTERNET FOUND, SHOWING CACHED DATA -- TRADUIR EN FRANCAIS", Toast.LENGTH_SHORT).show()
-
-            GlobalScope.launch (Dispatchers.Main) { viewModel.getProductsFromDB() }
-
-            viewModel.myResponse.observe(this, Observer { response ->
-                if (response.isSuccessful){
-                    response.body()?.let { productListAdapter.setList(it) }
-                }else{
-                    Log.d("RESPONSE", response.code().toString() )
-                }
-
-            })
+            Toast.makeText(this, "PAS de réseau.  Nous travaillons pour des services offline", Toast.LENGTH_LONG).show()
+            //GlobalScope.launch (Dispatchers.Main) { viewModel.getProductsFromDB() }
         }
 
     }

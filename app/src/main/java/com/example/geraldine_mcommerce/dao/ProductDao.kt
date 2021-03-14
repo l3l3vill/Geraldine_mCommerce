@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.geraldine_mcommerce.model.Product
 
-/*This is the Data access object where are defined the methods of database, like insert, or some queries to read or delete data */
+/*This is the Data access object where are defined the methods to manage the ProductDatabase, like insert products, read products or delete products */
 
 @Dao
 interface ProductDao {

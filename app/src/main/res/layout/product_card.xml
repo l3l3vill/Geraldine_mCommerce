@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tool="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_margin="10dp">
 
 
@@ -47,11 +46,25 @@
 
             <TextView
                 android:id="@+id/tv_price"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/iv_product"
                 android:layout_below="@id/tv_product_name"
                 tool:text="@string/product_price"
+                android:gravity="left"
+                style="@style/text_subtitle"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="6dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_price"
+                android:layout_below="@id/tv_product_name"
+                android:text="@string/currency"
                 android:gravity="left"
                 style="@style/text_subtitle"
                 android:layout_marginTop="6dp"

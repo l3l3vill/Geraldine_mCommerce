@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.geraldine_mcommerce.dao.ProductDao
 
-/*This represents the instance of the database*/
+/*This represents the instance of the ProductDatabase*/
 
 @Database( entities = [Product::class], version = 1)
 abstract  class ProductDatabase : RoomDatabase() {

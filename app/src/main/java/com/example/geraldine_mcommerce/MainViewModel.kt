@@ -15,23 +15,16 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     val myResponse : MutableLiveData<Response<List<Product>>> = MutableLiveData()
 
-    fun getProductList(){
+    fun getProductListFromAPI(){
         viewModelScope.launch {
-            val response = repository.getProductList()
+            val response = repository.getProductListAPI()
             myResponse.value = response
         }
     }
 
 
-    var productRepository: Repository
-
-    init {
-        productRepository = Repository()
-    }
-
-
     suspend fun getProductsFromDB(){
-        productRepository.putApiDataInDatabase()
+        repository.putApiDataInDatabase()
     }
 
 }

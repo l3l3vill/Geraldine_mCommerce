@@ -6,7 +6,8 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 
-/*This represents the API where are defined the methods to make the requests, in this case GET, to retrieve all the information */
+/*This represents the API where are defined the methods to make the requests.
+ Here is used GET, to retrieve all the product information */
 
 interface ProductApi {
 

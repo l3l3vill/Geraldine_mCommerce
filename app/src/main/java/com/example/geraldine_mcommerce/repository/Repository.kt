@@ -15,11 +15,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/*This class extracts the data from different data sources*/
 class Repository {
 
 
     //Get Data from API
-    suspend fun getProductList(): Response<List<Product>> {
+    suspend fun getProductListAPI(): Response<List<Product>> {
         return RetrofitInstance.api.getProductList()
     }
 
@@ -36,15 +37,10 @@ class Repository {
 
     // Put data from API in DB
     suspend fun putApiDataInDatabase(){
-        val gson = Gson()
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl(Constants.BASE_URL)
-            .build()
 
-        val productApi = retrofit.create<ProductApi>(ProductApi::class.java)
-        productApi.getProductList()
-        (object : Callback<List<Product>>{
+        RetrofitInstance.api.getProductList()
+        //todo:  how can we get the API data, and make a call in order to know if we can insert the response into the dataBase ?
+/*        (object : Callback<List<Product>>{
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
                 Log.e("REPOSITORY", t.toString())
             }
@@ -61,6 +57,6 @@ class Repository {
                 }
             }
 
-        })
+        })*/
     }
 }

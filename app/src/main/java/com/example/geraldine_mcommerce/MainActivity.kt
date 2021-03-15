@@ -14,7 +14,9 @@ import com.example.geraldine_mcommerce.adapter.ProductListAdapter
 import com.example.geraldine_mcommerce.databinding.ActivityMainBinding
 import com.example.geraldine_mcommerce.repository.Repository
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -53,7 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         }else{
             Toast.makeText(this, "PAS de réseau.  Nous travaillons pour des services offline", Toast.LENGTH_LONG).show()
-            //GlobalScope.launch (Dispatchers.Main) { viewModel.getProductsFromDB() }
+            //CoroutineScope(IO).launch {
+                //viewModel.getProductsFromDB(applicationContext)
+                //productListAdapter.setList()
+            //}
+
         }
 
     }

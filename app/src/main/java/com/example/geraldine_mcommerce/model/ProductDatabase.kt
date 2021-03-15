@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.geraldine_mcommerce.dao.ProductDao
+import kotlin.coroutines.CoroutineContext
 
 /*This represents the instance of the ProductDatabase*/
 

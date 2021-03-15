@@ -12,13 +12,13 @@ import com.example.geraldine_mcommerce.model.Product
 interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE )
-    fun insertAllProducts(productList : List<Product>)
+    suspend fun insertAllProducts(productList : List<Product>)
 
     @Query("SELECT * FROM product_table")
-    fun getAllData(): LiveData<List<Product>>
+    suspend fun getAllData(): LiveData<List<Product>>
 
     @Query("DELETE FROM product_table")
-    fun deleteAllProducts()
+    suspend fun deleteAllProducts()
 
 
 }
